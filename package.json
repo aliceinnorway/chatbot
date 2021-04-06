@@ -1,0 +1,22 @@
+{
+  "name": "my_first_bot",
+  "version": "0.0.9",
+  "description": "my first ever bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliceinnorway/chatbot.git"
+  },
+  "author": "Alice Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aliceinnorway/chatbot/issues"
+  },
+  "homepage": "https://github.com/aliceinnorway/chatbot#readme",
+  "dependencies": {
+    "botbuilder": "^3.13.1"
+  }
+}
