@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/aliceinnorway/chatbot#readme",
   "dependencies": {
-    "botbuilder": "^3.13.1"
+    "botbuilder": "^3.13.1",
+    "restify": "^8.5.1"
   }
 }
