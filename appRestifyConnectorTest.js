@@ -29,6 +29,7 @@ bot.dialog('/', [
     function(session, results) {
         session.send('Hi %s\r\n I am a newlyborn bot. I am still learning.',
         session.userData.name);
+    }
 ]);
 
 bot.dialog('/collect_name', [

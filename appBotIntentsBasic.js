@@ -37,7 +37,7 @@ intents.onDefault([
     }
 ]);
 
-intents.matches(/^change name/i, [
+intents.matches(/^(?=.*\bchange\b)(?=.*\bname\b).*$/i, [
     function (session) {
         session.beginDialog('/collect_name'); 
     },
