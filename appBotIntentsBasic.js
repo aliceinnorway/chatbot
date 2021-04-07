@@ -18,18 +18,34 @@ var connector = new builder.ChatConnector ({
     var inMemoryStorage = new builder.MemoryBotStorage();
     var bot = new builder.UniversalBot(connector).set('storage', inMemoryStorage);
 
-bot.dialog('/', [
-    function(session, args, next) {
-        if(!session.userData.name) {
+// Intent Initalisation
+
+var intents = new builder.IntentDialog(); 
+bot.dialog('/', intents); // root dialogue
+
+intents.onDefault([
+    function (session, args, next) {
+        if (!session.userData.name) {
             session.beginDialog('/collect_name');
         } else {
-            next();
+            next(); // go to next dialog
         }
     },
-    function(session, results) {
-        session.send('Hi %s\r\n I am a newlyborn bot. I am still learning.',
-        session.userData.name);
+
+    function (session, results) {
+        session.send('Hi %s\r\n I am a newborn bot. I am still learning', session.userData.name);
+    }
 ]);
+
+intents.matches(/^change name/i, [
+    function (session) {
+        session.beginDialog('/collect_name'); 
+    },
+
+    function (session, results) {
+        session.send('Ok, I have updated your name to %s', session.userData.name);
+    }
+])
 
 bot.dialog('/collect_name', [
     function(session) {
